@@ -25,7 +25,7 @@
   "homepage": "https://github.com/svgdotjs/svgdom#readme",
   "dependencies": {
     "gl-matrix": "^2.3.2",
-    "image-size": "^0.5.1",
+    "image-size": "^0.7.4",
     "sax": "^1.2.2"
   },
   "devDependencies": {
