@@ -5,7 +5,6 @@ const SVGMatrix = require('./class/SVGMatrix')
 const { SVGElement, DocumentFragment, Node, TextNode, Comment, AttributeNode } = require('./class/Node')
 const sizeOf = require('image-size')
 const path = require('path')
-const fontkit = require('fontkit')
 const { htmlEntities } = require('./utils/strUtils')
 
 class HTMLLinkElement extends Node {
@@ -272,18 +271,18 @@ class Window extends EventTarget {
     return this
   }
   preloadFonts () {
-    var map = this.document.fontFamilyMappings
-    var filename
+//     var map = this.document.fontFamilyMappings
+//     var filename
 
-    for (var i in map) {
-      filename = path.join(this.document.fontDir, map[i])
+//     for (var i in map) {
+//       filename = path.join(this.document.fontDir, map[i])
 
-      try {
-        this.document._preloaded[i] = fontkit.openSync(filename)
-      } catch (e) {
-        console.warn('Could not load font file for ' + i + '.' + e)
-      }
-    }
+//       try {
+//         this.document._preloaded[i] = fontkit.openSync(filename)
+//       } catch (e) {
+//         console.warn('Could not load font file for ' + i + '.' + e)
+//       }
+//     }
 
     return this
 
