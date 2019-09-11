@@ -3,6 +3,7 @@ const EventTarget = require('./class/EventTarget')
 const SVGPoint = require('./class/SVGPoint')
 const SVGMatrix = require('./class/SVGMatrix')
 const { SVGElement, DocumentFragment, Node, TextNode, Comment, AttributeNode } = require('./class/Node')
+const sizeOf = require('image-size')
 const path = require('path')
 const { htmlEntities } = require('./utils/strUtils')
 
@@ -81,17 +82,17 @@ Object.defineProperties(HTMLImageElement.prototype, {
     },
     set (val) {
       this.attrs.set('src', val)
-//       sizeOf(val, (err, size) => {
-//         if (err) {
-//           this.dispatchEvent(new Event('error', this))
-//           return
-//         }
+      sizeOf(val, (err, size) => {
+        if (err) {
+          this.dispatchEvent(new Event('error', this))
+          return
+        }
 
-//         this.width = this.naturalWidth = size.width
-//         this.height = this.naturalHeight = size.height
+        this.width = this.naturalWidth = size.width
+        this.height = this.naturalHeight = size.height
 
-//         this.dispatchEvent(new Event('load', this))
-//       })
+        this.dispatchEvent(new Event('load', this))
+      })
     }
   },
   height: {
