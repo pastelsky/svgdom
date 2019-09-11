@@ -1,7 +1,7 @@
 const defaults = require('./defaults')
 const Box = require('../class/Box')
 const path = require('path')
-const fontkit = require('fontkit')
+// const fontkit = require('fontkit')
 
 const bbox = function (text, x, y, details) {
 
@@ -28,14 +28,14 @@ const bbox = function (text, x, y, details) {
   } else {
     let filename = path.join(fontDir, fontMap[fontFamily])
 
-    try {
-      font = fontkit.openSync(filename)
-    } catch (e) {
+//     try {
+//       font = fontkit.openSync(filename)
+//     } catch (e) {
       console.warn(`Could not open font "${fontFamily}" in file "${filename}". ${e.toString()}`)
       return new Box()
-    }
+//     }
 
-    details.preloaded[fontFamily] = font
+//     details.preloaded[fontFamily] = font
   }
 
   var fontHeight = font.ascent - font.descent
